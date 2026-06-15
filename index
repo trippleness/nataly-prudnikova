@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Наталья Прудникова — Психолог, кризисная терапия пар</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lora:wght@400;500&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================
+       CSS ПЕРЕМЕННЫЕ
+    ============================ */
+    :root {
+      --color-bg: #F7F3EE;
+      --color-title: #3E3A39;
+      --color-subtitle: #6B6560;
+      --color-btn: #A8B5A0;
+      --color-btn-text: #FFFFFF;
+      --color-btn-hover: #94A38A;
+      --color-caption: #9C9690;
+
+      /* Шрифты */
+      --font-title: 'Cormorant Garamond', serif;
+      --font-subtitle: 'Lora', serif;
+      --font-btn: 'Nunito Sans', sans-serif;
+      --font-caption: 'Nunito Sans', sans-serif;
+    }
+
+    /* ============================
+       БАЗОВЫЕ СБРОСЫ
+    ============================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: var(--font-subtitle);
+      background-color: var(--color-bg);
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ============================
+       ВЕРХНЕЕ МЕНЮ
+    ============================ */
+    .header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.5rem clamp(1rem, 4vw, 4rem);
+    }
+
+    .header__logo {
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: clamp(1.1rem, 2vw, 1.6rem);
+      color: var(--color-title);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .header__contact-btn {
+      font-family: var(--font-btn);
+      font-weight: 600;
+      font-size: clamp(0.8rem, 1vw, 1rem);
+      color: var(--color-title);
+      background: transparent;
+      border: 1px solid var(--color-title);
+      border-radius: 999px;
+      padding: 0.6em 1.4em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .header__contact-btn:hover {
+      background-color: var(--color-btn-hover);
+      border-color: var(--color-btn-hover);
+      color: var(--color-btn-text);
+    }
+
+    /* ============================
+       HERO-БЛОК
+    ============================ */
+    .hero {
+      width: 100%;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr; /* мобильная сетка по умолчанию */
+      background-color: var(--color-bg);
+    }
+
+    /* Левая часть — текстовый контент */
+    .hero__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: clamp(1rem, 2vw, 1.5rem);
+      padding: clamp(6rem, 12vw, 8rem) clamp(1.5rem, 6vw, 6rem) clamp(3rem, 6vw, 4rem);
+      order: 2; /* на мобильных текст идёт после фото */
+    }
+
+    /* Правая часть — фотография эксперта */
+    .hero__media {
+      position: relative;
+      width: 100%;
+      min-height: 45vh;
+      overflow: hidden;
+      order: 1;
+    }
+
+    .hero__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* Лёгкий градиент поверх фото для читаемости (на случай мобильного, где фото сверху) */
+    .hero__media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(247, 243, 238, 0) 60%,
+        rgba(247, 243, 238, 0.9) 100%
+      );
+      pointer-events: none;
+    }
+
+    /* ============================
+       ТЕКСТОВЫЕ ЭЛЕМЕНТЫ
+    ============================ */
+    .hero__title {
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      line-height: 1.15;
+      color: var(--color-title);
+      max-width: 18ch;
+
+      /* анимация появления снизу вверх */
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .hero__subtitle {
+      font-family: var(--font-subtitle);
+      font-weight: 400;
+      font-size: clamp(1rem, 1.6vw, 1.25rem);
+      line-height: 1.6;
+      color: var(--color-subtitle);
+      max-width: 42ch;
+
+      /* анимация появления с задержкой */
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+      transition-delay: 0.25s;
+    }
+
+    .hero__cta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.9rem;
+      margin-top: clamp(0.5rem, 1vw, 1rem);
+
+      /* анимация появления последней */
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+      transition-delay: 0.5s;
+    }
+
+    .hero__button {
+      font-family: var(--font-btn);
+      font-weight: 600;
+      font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+      color: var(--color-btn-text);
+      background-color: var(--color-btn);
+      border: none;
+      border-radius: 999px;
+      padding: 1em 2.4em;
+      cursor: pointer;
+      transition: background-color 0.35s ease, transform 0.25s ease, box-shadow 0.35s ease;
+      box-shadow: 0 4px 14px rgba(168, 181, 160, 0.35);
+    }
+
+    .hero__button:hover,
+    .hero__button:focus-visible {
+      background-color: var(--color-btn-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(148, 163, 138, 0.45);
+    }
+
+    .hero__caption {
+      font-family: var(--font-caption);
+      font-weight: 400;
+      font-size: clamp(0.78rem, 1vw, 0.9rem);
+      color: var(--color-caption);
+      letter-spacing: 0.02em;
+    }
+
+    /* ============================
+       КЛАСС АКТИВАЦИИ АНИМАЦИЙ
+       (добавляется через JS после загрузки)
+    ============================ */
+    .hero__title.is-visible,
+    .hero__subtitle.is-visible,
+    .hero__cta.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================
+       АДАПТИВ
+    ============================ */
+
+    /* Мобильный горизонтально: 481px – 767px */
+    @media (min-width: 481px) {
+      .hero__media {
+        min-height: 40vh;
+      }
+    }
+
+    /* Планшет вертикально: 768px – 1024px */
+    @media (min-width: 768px) {
+      .hero__content {
+        padding: clamp(6rem, 10vw, 8rem) clamp(2rem, 6vw, 5rem) clamp(3rem, 6vw, 4rem);
+      }
+
+      .hero__media {
+        min-height: 38vh;
+      }
+    }
+
+    /* Планшет горизонтально и десктоп: от 1025px — двухколоночная сетка */
+    @media (min-width: 1025px) {
+      .hero {
+        grid-template-columns: 1.1fr 1fr;
+      }
+
+      .hero__content {
+        order: 1;
+        padding: 0 clamp(3rem, 6vw, 6rem);
+      }
+
+      .hero__media {
+        order: 2;
+        min-height: 100vh;
+      }
+
+      /* На широких экранах градиент не нужен — фото справа, текст слева */
+      .hero__media::after {
+        background: linear-gradient(
+          to left,
+          rgba(247, 243, 238, 0) 70%,
+          rgba(247, 243, 238, 0.5) 100%
+        );
+      }
+    }
+
+    /* Десктоп: 1281px и выше — чуть больше воздуха */
+    @media (min-width: 1281px) {
+      .hero__content {
+        gap: 1.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================
+       ВЕРХНЕЕ МЕНЮ
+  ============================ -->
+  <header class="header">
+    <div class="header__logo">Наталья Прудникова</div>
+    <button class="header__contact-btn" type="button">Связаться</button>
+  </header>
+
+  <!-- ============================
+       HERO-БЛОК
+  ============================ -->
+  <main class="hero">
+
+    <!-- Текстовый контент -->
+    <section class="hero__content">
+
+      <h1 class="hero__title">
+        Когда в отношениях больше нет тепла — есть выход
+      </h1>
+
+      <p class="hero__subtitle">
+        Клинический психолог поможет разобраться в чувствах, пережить кризис
+        и выстроить новую гармонию — в паре, в семье или с собой.
+      </p>
+
+      <div class="hero__cta">
+        <button class="hero__button" type="button">
+          Записаться на бесплатную консультацию
+        </button>
+        <span class="hero__caption">
+          Бесплатно · 10 минут · Без давления и обязательств
+        </span>
+      </div>
+
+    </section>
+
+    <!-- Фото эксперта -->
+    <!--
+      КОММЕНТАРИЙ ПО ФОТО (1920x1080):
+      Рекомендуется фото Натальи в спокойной, доверительной позе —
+      мягкий естественный свет, нейтральный светлый фон,
+      тёплая, искренняя полу-улыбка или задумчивый взгляд "в кадр".
+      Одежда — светлая/нейтральная (рубашка, кардиган),
+      без строгого делового "корпоративного" образа.
+      Можно использовать предоставленное чёрно-белое фото как временный
+      placeholder, но для финальной версии лучше цветное фото в
+      тёплой светлой палитре, чтобы поддержать общее настроение блока.
+    -->
+    <figure class="hero__media">
+      <img
+        src="psychologist-photo.jpg"
+        alt="Наталья Прудникова — клинический психолог, специалист по кризисной терапии пар"
+        width="1920"
+        height="1080"
+      />
+    </figure>
+
+  </main>
+
+  <!-- ============================
+       JS: АНИМАЦИИ ПРИ ЗАГРУЗКЕ
+  ============================ -->
+  <script>
+    // Дожидаемся полной загрузки страницы
+    window.addEventListener('DOMContentLoaded', () => {
+      const title = document.querySelector('.hero__title');
+      const subtitle = document.querySelector('.hero__subtitle');
+      const cta = document.querySelector('.hero__cta');
+
+      // Небольшая задержка перед стартом, чтобы анимация
+      // не "сливалась" с моментом отрисовки страницы
+      requestAnimationFrame(() => {
+        setTimeout(() => title.classList.add('is-visible'), 100);
+        setTimeout(() => subtitle.classList.add('is-visible'), 350);
+        setTimeout(() => cta.classList.add('is-visible'), 600);
+      });
+    });
+  </script>
+
+</body>
+</html>
