@@ -1,379 +1,372 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Наталья Прудникова — Психолог, кризисная терапия пар</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Наталья Прудникова — клинический психолог</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5F0E4;
+    --surface: #FFFFFF;
+    --ink: #24302A;
+    --sage: #6E8C79;
+    --sage-light: #DDE6DD;
+    --clay: #C76B47;
+    --clay-light: #F1DCCC;
+    --muted: #5E6960;
+    --border: rgba(36, 48, 42, 0.12);
+  }
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lora:wght@400;500&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  <style>
-    /* ============================
-       CSS ПЕРЕМЕННЫЕ
-    ============================ */
-    :root {
-      --color-bg: #F7F3EE;
-      --color-title: #3E3A39;
-      --color-subtitle: #6B6560;
-      --color-btn: #A8B5A0;
-      --color-btn-text: #FFFFFF;
-      --color-btn-hover: #94A38A;
-      --color-caption: #9C9690;
+  html { -webkit-font-smoothing: antialiased; }
 
-      /* Шрифты */
-      --font-title: 'Cormorant Garamond', serif;
-      --font-subtitle: 'Lora', serif;
-      --font-btn: 'Nunito Sans', sans-serif;
-      --font-caption: 'Nunito Sans', sans-serif;
+  body {
+    font-family: 'Work Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  /* ===== HEADER ===== */
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(245, 240, 228, 0.86);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 88px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .logo-text strong {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .logo-text span {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+    letter-spacing: 0.02em;
+  }
+
+  .main-nav {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+
+  .main-nav a {
+    font-size: 14px;
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .main-nav a:hover {
+    color: var(--clay);
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .btn-header {
+    display: inline-flex;
+    align-items: center;
+    background: var(--clay);
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 11px 24px;
+    border-radius: 999px;
+    transition: opacity 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .btn-header:hover { opacity: 0.88; }
+
+  /* ===== HERO ===== */
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0 28px;
+    min-height: calc(100vh - 88px);
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 56px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 10px;
+  }
+
+  .eyebrow::before {
+    content: "";
+    display: block;
+    width: 26px;
+    height: 1px;
+    background: var(--sage);
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--clay);
+  }
+
+  .hero .lead {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 16px;
+  }
+
+  .cta-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    background: var(--clay);
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 999px;
+    transition: opacity 0.15s ease;
+  }
+
+  .btn-primary:hover { opacity: 0.88; }
+
+  .cta-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .cta-note svg { flex-shrink: 0; }
+
+  .trust-row {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  .trust-item svg {
+    flex-shrink: 0;
+    color: var(--sage);
+  }
+
+  /* ===== VISUAL / PHOTO PLACEHOLDER ===== */
+
+  .hero-visual {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    height: min(calc(100vh - 148px), 680px);
+    margin: 0 auto;
+  }
+
+  .blob {
+    position: absolute;
+    z-index: 1;
+  }
+
+  .blob-sage {
+    width: 92%;
+    height: 92%;
+    top: -6%;
+    left: -7%;
+    background: var(--sage-light);
+    border-radius: 42% 58% 68% 32% / 48% 44% 56% 52%;
+  }
+
+  .blob-clay {
+    width: 58%;
+    height: 58%;
+    bottom: -7%;
+    right: -9%;
+    background: var(--clay-light);
+    border-radius: 60% 40% 38% 62% / 58% 42% 58% 42%;
+  }
+
+  .hero-photo {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: calc(50% + 15px) center;
+    border-radius: 20px;
+    display: block;
+    box-shadow: 0 24px 48px -16px rgba(36, 48, 42, 0.28);
+  }
+
+  /* ===== RESPONSIVE ===== */
+
+  @media (max-width: 980px) {
+    .container { padding: 0 28px; }
+    .main-nav { display: none; }
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
     }
-
-    /* ============================
-       БАЗОВЫЕ СБРОСЫ
-    ============================ */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    .hero-visual {
+      order: -1;
+      max-width: 340px;
     }
+    .hero { padding: 48px 0 72px; }
+    .trust-row { gap: 24px; }
+  }
 
-    html, body {
-      width: 100%;
-      height: 100%;
-      font-family: var(--font-subtitle);
-      background-color: var(--color-bg);
-      overflow-x: hidden;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    /* ============================
-       ВЕРХНЕЕ МЕНЮ
-    ============================ */
-    .header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 1.5rem clamp(1rem, 4vw, 4rem);
-    }
-
-    .header__logo {
-      font-family: var(--font-title);
-      font-weight: 700;
-      font-size: clamp(1.1rem, 2vw, 1.6rem);
-      color: var(--color-title);
-      letter-spacing: 0.04em;
-      white-space: nowrap;
-    }
-
-    .header__contact-btn {
-      font-family: var(--font-btn);
-      font-weight: 600;
-      font-size: clamp(0.8rem, 1vw, 1rem);
-      color: var(--color-title);
-      background: transparent;
-      border: 1px solid var(--color-title);
-      border-radius: 999px;
-      padding: 0.6em 1.4em;
-      cursor: pointer;
-      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-      white-space: nowrap;
-    }
-
-    .header__contact-btn:hover {
-      background-color: var(--color-btn-hover);
-      border-color: var(--color-btn-hover);
-      color: var(--color-btn-text);
-    }
-
-    /* ============================
-       HERO-БЛОК
-    ============================ */
-    .hero {
-      width: 100%;
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr; /* мобильная сетка по умолчанию */
-      background-color: var(--color-bg);
-    }
-
-    /* Левая часть — текстовый контент */
-    .hero__content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      gap: clamp(1rem, 2vw, 1.5rem);
-      padding: clamp(6rem, 12vw, 8rem) clamp(1.5rem, 6vw, 6rem) clamp(3rem, 6vw, 4rem);
-      order: 2; /* на мобильных текст идёт после фото */
-    }
-
-    /* Правая часть — фотография эксперта */
-    .hero__media {
-      position: relative;
-      width: 100%;
-      min-height: 45vh;
-      overflow: hidden;
-      order: 1;
-    }
-
-    .hero__media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-    }
-
-    /* Лёгкий градиент поверх фото для читаемости (на случай мобильного, где фото сверху) */
-    .hero__media::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(247, 243, 238, 0) 60%,
-        rgba(247, 243, 238, 0.9) 100%
-      );
-      pointer-events: none;
-    }
-
-    /* ============================
-       ТЕКСТОВЫЕ ЭЛЕМЕНТЫ
-    ============================ */
-    .hero__title {
-      font-family: var(--font-title);
-      font-weight: 700;
-      font-size: clamp(2.2rem, 6vw, 3.5rem);
-      line-height: 1.15;
-      color: var(--color-title);
-      max-width: 18ch;
-
-      /* анимация появления снизу вверх */
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-    }
-
-    .hero__subtitle {
-      font-family: var(--font-subtitle);
-      font-weight: 400;
-      font-size: clamp(1rem, 1.6vw, 1.25rem);
-      line-height: 1.6;
-      color: var(--color-subtitle);
-      max-width: 42ch;
-
-      /* анимация появления с задержкой */
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-      transition-delay: 0.25s;
-    }
-
-    .hero__cta {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.9rem;
-      margin-top: clamp(0.5rem, 1vw, 1rem);
-
-      /* анимация появления последней */
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-      transition-delay: 0.5s;
-    }
-
-    .hero__button {
-      font-family: var(--font-btn);
-      font-weight: 600;
-      font-size: clamp(0.95rem, 1.4vw, 1.1rem);
-      color: var(--color-btn-text);
-      background-color: var(--color-btn);
-      border: none;
-      border-radius: 999px;
-      padding: 1em 2.4em;
-      cursor: pointer;
-      transition: background-color 0.35s ease, transform 0.25s ease, box-shadow 0.35s ease;
-      box-shadow: 0 4px 14px rgba(168, 181, 160, 0.35);
-    }
-
-    .hero__button:hover,
-    .hero__button:focus-visible {
-      background-color: var(--color-btn-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(148, 163, 138, 0.45);
-    }
-
-    .hero__caption {
-      font-family: var(--font-caption);
-      font-weight: 400;
-      font-size: clamp(0.78rem, 1vw, 0.9rem);
-      color: var(--color-caption);
-      letter-spacing: 0.02em;
-    }
-
-    /* ============================
-       КЛАСС АКТИВАЦИИ АНИМАЦИЙ
-       (добавляется через JS после загрузки)
-    ============================ */
-    .hero__title.is-visible,
-    .hero__subtitle.is-visible,
-    .hero__cta.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ============================
-       АДАПТИВ
-    ============================ */
-
-    /* Мобильный горизонтально: 481px – 767px */
-    @media (min-width: 481px) {
-      .hero__media {
-        min-height: 40vh;
-      }
-    }
-
-    /* Планшет вертикально: 768px – 1024px */
-    @media (min-width: 768px) {
-      .hero__content {
-        padding: clamp(6rem, 10vw, 8rem) clamp(2rem, 6vw, 5rem) clamp(3rem, 6vw, 4rem);
-      }
-
-      .hero__media {
-        min-height: 38vh;
-      }
-    }
-
-    /* Планшет горизонтально и десктоп: от 1025px — двухколоночная сетка */
-    @media (min-width: 1025px) {
-      .hero {
-        grid-template-columns: 1.1fr 1fr;
-      }
-
-      .hero__content {
-        order: 1;
-        padding: 0 clamp(3rem, 6vw, 6rem);
-      }
-
-      .hero__media {
-        order: 2;
-        min-height: 100vh;
-      }
-
-      /* На широких экранах градиент не нужен — фото справа, текст слева */
-      .hero__media::after {
-        background: linear-gradient(
-          to left,
-          rgba(247, 243, 238, 0) 70%,
-          rgba(247, 243, 238, 0.5) 100%
-        );
-      }
-    }
-
-    /* Десктоп: 1281px и выше — чуть больше воздуха */
-    @media (min-width: 1281px) {
-      .hero__content {
-        gap: 1.75rem;
-      }
-    }
-  </style>
+  @media (max-width: 480px) {
+    .cta-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- ============================
-       ВЕРХНЕЕ МЕНЮ
-  ============================ -->
-  <header class="header">
-    <div class="header__logo">Наталья Прудникова</div>
-    <button class="header__contact-btn" type="button">Связаться</button>
-  </header>
-
-  <!-- ============================
-       HERO-БЛОК
-  ============================ -->
-  <main class="hero">
-
-    <!-- Текстовый контент -->
-    <section class="hero__content">
-
-      <h1 class="hero__title">
-        Когда в отношениях больше нет тепла — есть выход
-      </h1>
-
-      <p class="hero__subtitle">
-        Клинический психолог поможет разобраться в чувствах, пережить кризис
-        и выстроить новую гармонию — в паре, в семье или с собой.
-      </p>
-
-      <div class="hero__cta">
-        <button class="hero__button" type="button">
-          Записаться на бесплатную консультацию
-        </button>
-        <span class="hero__caption">
-          Бесплатно · 10 минут · Без давления и обязательств
-        </span>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <div class="logo-text">
+          <strong>Наталья Прудникова</strong>
+          <span>Клинический психолог</span>
+        </div>
       </div>
 
-    </section>
+      <nav class="main-nav">
+        <a href="#">С чем я работаю</a>
+        <a href="#">Как проходит терапия</a>
+        <a href="#">Обо мне</a>
+        <a href="#">Формат и стоимость</a>
+        <a href="#">Вопросы</a>
+      </nav>
 
-    <!-- Фото эксперта -->
-    <!--
-      КОММЕНТАРИЙ ПО ФОТО (1920x1080):
-      Рекомендуется фото Натальи в спокойной, доверительной позе —
-      мягкий естественный свет, нейтральный светлый фон,
-      тёплая, искренняя полу-улыбка или задумчивый взгляд "в кадр".
-      Одежда — светлая/нейтральная (рубашка, кардиган),
-      без строгого делового "корпоративного" образа.
-      Можно использовать предоставленное чёрно-белое фото как временный
-      placeholder, но для финальной версии лучше цветное фото в
-      тёплой светлой палитре, чтобы поддержать общее настроение блока.
-    -->
-    <!-- Холдер вместо фото эксперта -->
-<figure class="hero__media hero__media--placeholder">
-  <div class="placeholder">
-    <svg class="placeholder__icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <!-- Силуэт человека -->
-      <circle cx="60" cy="42" r="22" />
-      <path d="M20 110 C20 80 40 68 60 68 C80 68 100 80 100 110 Z" />
-    </svg>
-    <p class="placeholder__text">Фото эксперта</p>
-    <span class="placeholder__size">1920 × 1080</span>
-  </div>
-</figure>
+      <div class="header-actions">
+        <a href="https://t.me/NataliyPrudnikova" target="_blank" rel="noopener" class="btn-header">Записаться</a>
+      </div>
+    </div>
+  </header>
 
-  </main>
+  <section class="hero">
+    <div class="container hero-inner">
 
-  <!-- ============================
-       JS: АНИМАЦИИ ПРИ ЗАГРУЗКЕ
-  ============================ -->
-  <script>
-    // Дожидаемся полной загрузки страницы
-    window.addEventListener('DOMContentLoaded', () => {
-      const title = document.querySelector('.hero__title');
-      const subtitle = document.querySelector('.hero__subtitle');
-      const cta = document.querySelector('.hero__cta');
+      <div class="hero-text">
+        <div class="eyebrow">Кризисная терапия для пар · Москва и онлайн</div>
 
-      // Небольшая задержка перед стартом, чтобы анимация
-      // не "сливалась" с моментом отрисовки страницы
-      requestAnimationFrame(() => {
-        setTimeout(() => title.classList.add('is-visible'), 100);
-        setTimeout(() => subtitle.classList.add('is-visible'), 350);
-        setTimeout(() => cta.classList.add('is-visible'), 600);
-      });
-    });
-  </script>
+        <h1>Помогаю парам восстановить <em>доверие</em> и разобраться в отношениях после измены, конфликтов и эмоционального отчуждения</h1>
+
+        <p class="lead">
+          Помогу понять причины происходящего, наладить диалог и найти путь к решению, которое подойдет именно вашей паре.
+        </p>
+
+        <div class="cta-row">
+          <a href="https://t.me/NataliyPrudnikova" target="_blank" rel="noopener" class="btn-primary">Бесплатно обсудить ситуацию</a>
+          <div class="cta-note">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            Бесплатно · 10 минут · без обязательств
+          </div>
+        </div>
+
+        <div class="trust-row">
+          <div class="trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M8 15c1.2 1.2 2.6 1.8 4 1.8s2.8-.6 4-1.8"/></svg>
+            Клинический психолог
+          </div>
+          <div class="trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 1-4.5 4.5L17 20l-5-3-5 3 1.5-6.5L4 9l6-1z"/></svg>
+            Специализация: кризисы отношений
+          </div>
+          <div class="trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 1 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            Москва и онлайн
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="blob blob-sage"></div>
+        <div class="blob blob-clay"></div>
+        <img class="hero-photo" src="https://i.ibb.co/wZjqL4v4/WWXLNfb-W3-IAw-Sb9-HAaiobkn-Jy-Gwt4b6j-I9svis-RHeu-Vl-x-Mf5a-S81-Yh-L4he-ER1-Oo-Or-Kgy-Ct6mt73w6-Hb-b-NA.jpg" alt="Наталья Прудникова, клинический психолог">
+      </div>
+
+    </div>
+  </section>
 
 </body>
 </html>
